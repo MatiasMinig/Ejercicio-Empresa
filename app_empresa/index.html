@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summa Solutions</title>
+    <!-- Bootstrap de bootswatch.com -->
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navegacion!! -->
+    <nav class="navbar navbar-light bg-light">
+        <a href="https://www.summasolutions.net/" target="_blanck">
+            Summa Solutions
+        </a>
+    </nav>
+
+    <div class="container">
+        <!--Aplicacion-->
+        <div id="App" class="row pt-5">
+            <!--Formulario-->
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Agregar un Empleado</h4>
+                        <h6>Edad promedio: <span id="promedio"> 0</span></h6>
+                    </div>
+
+                    
+                    <form id="empleado-form" class="card-body" onsubmit="agregarEmpleado(event);">
+
+                        <div class="form-group">
+                            <input type="text" placeholder="Coloque su Nombre" id="nombre" 
+                            class="form-control" required autocomplete="off">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" placeholder="Coloque su Apellido" id="apellido" 
+                            class="form-control" required autocomplete="off">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="number" min="0" max="120"placeholder="Coloque su Edad" id="edad" 
+                            class="form-control" required autocomplete="off">
+                        </div>
+
+
+                        <!--  -->
+                        <div class="form-group" onchange="handleCheckbox(event)">
+                            <div class="custom-control custom-radio">
+                              <input type="radio" id="programador_checkbox" name="customRadio" class="custom-control-input">
+                              <label class="custom-control-label" for="programador_checkbox">Programador</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                              <input type="radio" id="diseniador_checkbox" name="customRadio" class="custom-control-input">
+                              <label class="custom-control-label" for="diseniador_checkbox">Diseñador</label>
+                            </div>
+                          </div>
+
+                        <div class="form-group" id="programador">
+                            <label for="programador"><h6>Programa en:</h6></label>
+                            <select name="lenguaje" class="form-control" id="lenguaje">
+                                <option selected="true" value="no">NO</option>
+                                <option value="php">PHP</option>
+                                <option value="php">NET</option>
+                                <option value="php">PYTHON</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" id="diseniador">
+                            <label for="diseniador"><h6>Diseña en:</h6></label>
+                            <select name="diseniador" id="disenia" class="form-control">
+                                <option selected="true" value="no">NO</option>
+                                <option value="grafico">Grafico</option>
+                                <option value="web">Web</option>
+                            </select>
+                        </div>
+                   
+
+                        <div class="form-group">
+                            <input type="submit" value="Guardar" class="btn btn-primary btn-block">
+                        </div>
+    
+                    </form>
+
+                    
+                        <div class="form-group">
+                            <input id="buscarEmpleado" class="form-control" type="text" placeholder="Buscar empleado por ID">
+                        </div>
+                    
+                        <div class="form-group card-body">
+                            <button class="btn btn-success form-control"  onclick="buscarEmpleado()">Buscar</button>
+                        </div>
+                </div>
+            </div>
+            <div id="empleado-list" class="col-lg-8"></div>
+            
+        </div>
+    </div>
+    
+
+    <script src="empresa.js"></script>
+    <script src="empleado.js"></script>
+    <script src="programador.js"></script>
+    <script src="diseniador.js"></script>
+
+</body>
+</html>
